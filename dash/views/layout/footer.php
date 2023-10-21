@@ -2,13 +2,13 @@
 <script src="https://kit.fontawesome.com/4d529f15e3.js" crossorigin="anonymous"></script>
 
 <!-- Core JS Files -->
-<script src="../assets/js/core/popper.min.js"></script>
-<script src="../assets/js/core/bootstrap.min.js"></script>
+<script src="../../assets/js/core/popper.min.js"></script>
+<script src="../../assets/js/core/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!-- <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-<script src="../assets/js/plugins/smooth-scrollbar.min.js"></script> -->
+<!-- <script src="../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="../../assets/js/plugins/smooth-scrollbar.min.js"></script> -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-<script src="../assets/js/argon-dashboard3.min.js?v=2.0.4"></script>
+<script src="../../assets/js/argon-dashboard3.min.js?v=2.0.4"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 
 <script>
@@ -126,10 +126,12 @@
       if (elementoSidenav.classList.contains("g-sidenav-pinned")) {
         elementoSidenav.classList.add("g-sidenav-pinned");
         elementsidenavMain.classList.add("bg-white");
-        if (darkVersionCheckbox.checked === true) {
-          elementsidenavMain.classList.remove("bg-white"); // Remover la clase "bg-white" si existe
-        } else {
-          elementsidenavMain.classList.add("bg-white");
+        if (darkVersionCheckbox != null) {
+          if (darkVersionCheckbox.checked === true) {
+            elementsidenavMain.classList.remove("bg-white"); // Remover la clase "bg-white" si existe
+          } else {
+            elementsidenavMain.classList.add("bg-white");
+          }
         }
       } else {
         elementoSidenav.classList.remove("g-sidenav-pinned");
@@ -141,33 +143,6 @@
     elementoSidenavIcon.addEventListener("click", function() {
       elementoSidenav.classList.remove("g-sidenav-pinned");
     });
-  }
-</script>
-
-<script>
-  function input_fecha(number) {
-    switch (number) {
-      case 1:
-        var hoy = new Date()
-        var fecha = hoy.getFullYear() + '-' + ('0' + (hoy.getMonth() + 1)).slice(-2) + '-' + ('0' + hoy.getDate()).slice(-2);
-        var hora = ('0' + hoy.getHours()).slice(-2) + ':' + ('0' + hoy.getMinutes()).slice(-2) + ':' + ('0' + hoy.getSeconds()).slice(-2);
-
-        var fecha_hora = fecha + 'T' + hora;
-        document.getElementById('fecha_hora').value = fecha_hora;
-        cambiarTitulo('TopiTop | Generar Solicitud')
-        break;
-      case 2:
-        var fecha = new Date();
-        var mes = fecha.getMonth() + 1;
-        var dia = fecha.getDate();
-        var ano = fecha.getFullYear();
-        if (dia < 10)
-          dia = '0' + dia;
-        if (mes < 10)
-          mes = '0' + mes;
-        document.getElementById('fecha').value = ano + "-" + mes + "-" + dia;
-        break;
-    }
   }
 </script>
 
@@ -211,30 +186,30 @@
 </script>
 
 <script>
-// para buscar cards y contenidos.
-$(document).ready(function() {
-  $('#txtBuscar2').keyup(function() {
-    var nombres = $('.titulo');
-    var buscando = $(this).val().toLowerCase();
-    for (var i = 0; i < nombres.length; i++) {
-      item = $(nombres[i]).html().toLowerCase();
-      for (var x = 0; x < item.length; x++) {
-        if (buscando.length == 0 || item.indexOf(buscando) > -1) {
-          $(nombres[i]).parents('.tarjetaGeneral').show();
-        } else {
-          $(nombres[i]).parents('.tarjetaGeneral').hide();
+  // para buscar cards y contenidos.
+  $(document).ready(function() {
+    $('#txtBuscar2').keyup(function() {
+      var nombres = $('.titulo');
+      var buscando = $(this).val().toLowerCase();
+      for (var i = 0; i < nombres.length; i++) {
+        item = $(nombres[i]).html().toLowerCase();
+        for (var x = 0; x < item.length; x++) {
+          if (buscando.length == 0 || item.indexOf(buscando) > -1) {
+            $(nombres[i]).parents('.tarjetaGeneral').show();
+          } else {
+            $(nombres[i]).parents('.tarjetaGeneral').hide();
+          }
         }
       }
-    }
-    if (nombres.length == $('.tarjetaGeneral:hidden').length) {
-      $('#noResults').show();
-      $('.footer').hide();
-    } else {
-      $('#noResults').hide();
-      $('.footer').show();
-    }
+      if (nombres.length == $('.tarjetaGeneral:hidden').length) {
+        $('#noResults').show();
+        $('.footer').hide();
+      } else {
+        $('#noResults').hide();
+        $('.footer').show();
+      }
+    });
   });
-});
 </script>
 
 <script>
@@ -289,80 +264,12 @@ $(document).ready(function() {
 
 <script>
   $("#logout").on('click', function(e) {
-    $.post("../../../config/ajax/logout.php?op=logout", function(e) {
-      window.location.href = "../../../config/logout.php";
+    $.post("../../ajax/logout.php?op=logout", function(e) {
+      window.location.href = "../../config/logout.php";
     });
   })
 </script>
 
-<!-- =================== GENERAR INPUTS DINÁMICO - EVALUACIONES =================== -->
-
-<script>
-  var limite = 99;
-  var eliminados = 0;
-  var contador = 1;
-
-  function addDynamicTextArea() {
-    if (limite > 0) {
-      $("#container").append(`
-        <div class="col-md-6 mb-2 agregado">
-          <div class="form-group">
-              <label for="titulo">Pregunta N° ${contador + 1}:</label>
-              <textarea class="form-control" id="pregunta${contador + 1}" rows="2" maxlength="300" placeholder="Ingrese su pregunta." required></textarea>
-          </div>
-        </div>
-      `);
-      limite--;
-      contador++;
-
-      $(".contenedor").addClass("row p-0 m-0");
-    }
-
-    if (limite === 98) {
-      $(".eliminar").removeClass("d-none");
-      $(".evaluacion-principal").removeClass("col-md-12");
-      $(".evaluacion-principal").addClass("col-md-6");
-    }
-
-    if (limite === 0) {
-      $(".agregar").addClass("d-none");
-    }
-  }
-
-  function removeDynamicTextArea() {
-    $(".agregado:last").remove();
-
-    limite++;
-    eliminados--;
-
-    if (limite === 1) {
-      $(".agregar").removeClass("d-none");
-    }
-
-    if (eliminados < 100) {
-      $(".eliminar").removeClass("d-none");
-    }
-
-    if ($(".agregado").length === 0) {
-      $(".eliminar").addClass("d-none");
-      $(".evaluacion-principal").removeClass("col-md-6");
-      $(".evaluacion-principal").addClass("col-md-12");
-      $(".contenedor").removeClass("row p-0 m-0");
-    }
-
-    contador = $(".agregado").length + 1;
-  }
-
-  $(".agregar").click(function() {
-    console.log("hice clic =)");
-    addDynamicTextArea();
-  });
-
-  $(".eliminar").click(function() {
-    console.log("hice clic =)");
-    removeDynamicTextArea();
-  });
-</script>
 </body>
 
 </html>

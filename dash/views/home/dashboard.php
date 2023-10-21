@@ -4,7 +4,7 @@ require '../layout/header.php';
 
 if (!isset($_SESSION["idusuario"])) {
     session_destroy(); // Cierre de sesión adecuado.
-    header("Location: ../auth/error.php");
+    header("Location: ../../auth/error.php");
     exit(); // Y detenemos la ejecución después de la redirección.
 }
 ?>
@@ -67,14 +67,14 @@ if (!isset($_SESSION["idusuario"])) {
     }
 </style>
 
-<body class="g-sidenav-show bg-gray-100" id="contain-body" onload="cambiarTitulo('TopiTop | Dashboard')">
+<body class="g-sidenav-show bg-gray-100" id="contain-body" onload="cambiarTitulo('Childminder Alert | Dashboard')">
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 panel" id="sidenav-main">
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer position-absolute end-0 top-0 d-xl-none d-block" aria-hidden="false" id="iconSidenav"></i>
             <a class="navbar-brand m-0">
-                <img src="../../dash/img/topitop-logo.png" class="navbar-brand-img h-100" alt="main_logo">
-                <span class="ms-2 font-weight-bold">TopiTop</span>
+                <img src="../../assets/img/childminder-logo.png" class="navbar-brand-img h-100" alt="main_logo">
+                <span class="ms-2 font-weight-bold">Childminder Alert</span>
             </a>
         </div>
         <hr class="horizontal dark mt-0">
@@ -91,106 +91,48 @@ if (!isset($_SESSION["idusuario"])) {
                         <span class="nav-link-text ms-1">Dashboard</span>
                     </a>
                 </li>
-                <?php
-                if ($_SESSION['rol'] == "admin" || $_SESSION['rol'] == "jefe_rrhh") {
-                ?>
-                    <li class="nav-item">
-                        <a href="../tiendas/tiendas.php" class="nav-link">
-                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-cart text-primary text-sm opacity-10"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Tiendas</span>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
-                <?php
-                if ($_SESSION['rol'] == "admin" || $_SESSION['rol'] == "jefe_tienda" || $_SESSION['rol'] == "jefe_rrhh") {
-                ?>
-                    <li class="nav-item">
-                        <a href="../solicitudes/solicitudes.php" class="nav-link">
-                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-paper-plane text-primary text-sm opacity-10 mb-1"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Solicitudes</span>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
-                <?php
-                if ($_SESSION['rol'] == "admin" || $_SESSION['rol'] == "jefe_tienda" || $_SESSION['rol'] == "jefe_rrhh") {
-                ?>
-                    <li class="nav-item">
-                        <a href="../puestos/puestos.php" class=" nav-link">
-                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-basket text-primary text-sm opacity-10 mb-1"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Puestos</span>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
-                <?php
-                if ($_SESSION['rol'] == "admin" || $_SESSION['rol'] == "jefe_rrhh" || $_SESSION['rol'] == "psicologo") {
-                ?>
-                    <li class="nav-item">
-                        <a href="../postulantes/puestos.php" class="nav-link">
-                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-planet text-primary text-sm opacity-10 mb-1"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Postulantes</span>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
-                <?php
-                if ($_SESSION['rol'] == "admin" || $_SESSION['rol'] == "psicologo" || $_SESSION['rol'] == "jefe_rrhh") {
-                ?>
-                    <li class="nav-item">
-                        <a href="../evaluaciones/evaluaciones.php" class="nav-link">
-                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-chart-pie-35 text-primary text-sm opacity-10"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Evaluaciones</span>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
                 <li class="nav-item">
-                    <a href="../reportes/reportes.php" class="nav-link">
+                    <a href="" class="nav-link">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-puzzle-piece text-primary text-sm opacity-10 mb-1"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Actividades</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa fa-mobile text-primary text-sm opacity-10 mb-1"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Dispositivos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-book-bookmark text-primary text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Reportes</span>
                     </a>
                 </li>
-                <?php
-                if ($_SESSION['rol'] == "admin") {
-                ?>
+                <?php if ($_SESSION["rol"] == "admin") { ?>
                     <li class="nav-item mt-3">
                         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Admin</h6>
                     </li>
                     <li class="nav-item">
-                        <a href="../usuarios/usuarios.php" class="nav-link">
+                        <a href="" class="nav-link">
                             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="ni ni-single-02 text-primary text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Usuarios</span>
                         </a>
                     </li>
-                <?php
-                }
-                ?>
+                <?php } ?>
                 <li class="nav-item mt-3">
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Personal</h6>
                 </li>
                 <li class="nav-item">
-                    <a href="./perfil.php" class="nav-link">
+                    <a href="perfil.php" class="nav-link">
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-settings-gear-65 text-primary text-sm opacity-10"></i>
                         </div>
@@ -232,14 +174,14 @@ if (!isset($_SESSION["idusuario"])) {
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center col-xl-3 col-lg-5 col-6">
                         <div class="input-group">
                             <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" id="txtBuscar2" name="txtBuscar2" placeholder="Buscar puesto de trabajo.">
+                            <input type="text" class="form-control" id="txtBuscar2" name="txtBuscar2" placeholder="Buscar actividad.">
                         </div>
                     </div>
                     <ul class="navbar-nav justify-content-end">
                         <li class="nav-item d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
                                 <i class="fa fa-user me-md-1"></i>
-                                <span class="d-md-inline d-none">Bienvenido: <?php echo $_SESSION['usuario']; ?> - <?php echo $_SESSION['rol_descripcion']; ?></span>
+                                <span class="d-md-inline d-none">Bienvenido: <?php echo ucwords($_SESSION['nombres']); ?> - <?php echo $_SESSION['rol_descripcion']; ?></span>
                             </a>
                         </li>
                         <li class="nav-item px-3 d-flex align-items-center">
@@ -259,7 +201,7 @@ if (!isset($_SESSION["idusuario"])) {
                         <div class="card-body p-3">
                             <div class="row">
                                 <div class="col-8 d-flex align-items-center">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">ÚLTIMOS PUESTOS DE TRABAJO</p>
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">TUS ACTIVIDADES REGISTRADAS</p>
                                 </div>
                                 <div class="col-4 text-end">
                                     <div class="icon icon-shape bg-gradient-info shadow-danger text-center rounded-circle">
@@ -272,9 +214,9 @@ if (!isset($_SESSION["idusuario"])) {
                 </div>
             </div>
             <!-- Start Card -->
-            <div class="mt-4">
-                <h6 class="mb-4 fw-bold" id="noResults" style="color: white; display: none;">¡Opps!... El puesto de trabajo que usted buscó no existe.</h6>
-                <div class="row puestos">
+            <div class="mt-5">
+                <h6 class="mb-4 fw-bold" id="noResults" style="color: white; display: none;">¡Opps!... La actividad que usted buscó no existe.</h6>
+                <!-- <div class="row puestos">
                     <div class="col-lg-4 col-md-6">
                         <span class="w-100 card loader"></span>
                     </div>
@@ -284,20 +226,105 @@ if (!isset($_SESSION["idusuario"])) {
                     <div class="col-lg-4 col-md-6 mb-4">
                         <span class="w-100 card loader"></span>
                     </div>
-                </div>
-            </div>
-            <!-- End Card -->
-            <div class="row">
-                <div class="col-12 mb-xl-0">
-                    <div class="card">
-                        <div class="card-body p-3">
-                            <div class="row">
-                                <div class="col-8 d-flex align-items-center">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold"><?php echo $_SESSION['titulo_tabla_dashboard'] ?></p>
+                </div> -->
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mt-4 mb-4 tarjetaGeneral">
+                        <div class="card z-index-2">
+                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                                <div class="bg-gradient-success shadow-primary border-radius-lg py-3 pe-1" style="background-image: url('../../assets/img/img-1.jpg'); background-size: cover; background-position: center center;">
+                                    <div class="chart">
+                                        <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
+                                    </div>
                                 </div>
-                                <div class="col-4 text-end">
-                                    <div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
-                                        <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="mb-2 titulo">Título</h6>
+                                <div class="row">
+                                    <div class="col-lg-8 d-flex justify-content-start">
+                                        <div><span class="text-sm">Autor: Christopher PS</span><span> | </span><span class="text-sm">20/10/23, 16:40 p.m.</span></div>
+                                    </div>
+                                    <div class="col-lg-4 d-flex justify-content-end">
+                                        <span class="badge badge-sm bg-gradient-warning" style="height: 25px">
+                                            Pendiente
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row d-flex flex-column justify-content-center p-0 m-0 pt-3">
+                                    <div class="d-flex justify-content-center p-0 m-0 botones">
+                                        <a href="" class="btn bg-gradient-warning w-100 boton text-center p-0 pt-2 pb-2 m-1 align-items-center" style="font-size: 13px; width: 100px; margin-left: 0px !important;">
+                                            Ver más
+                                        </a>
+                                        <a href="" class="btn bg-gradient-primary w-100 boton text-center p-0 pt-2 pb-2 m-1 align-items-center" style="font-size: 13px; width: 100px; margin-right: 0px !important;">
+                                            Detalles
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mt-4 mb-4 tarjetaGeneral">
+                        <div class="card z-index-2">
+                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                                <div class="bg-gradient-success shadow-primary border-radius-lg py-3 pe-1" style="background-image: url('../../assets/img/img-1.jpg'); background-size: cover; background-position: center center;">
+                                    <div class="chart">
+                                        <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="mb-2 titulo">Título</h6>
+                                <div class="row">
+                                    <div class="col-lg-8 d-flex justify-content-start">
+                                        <div><span class="text-sm">Autor: Christopher PS</span><span> | </span><span class="text-sm">20/10/23, 16:40 p.m.</span></div>
+                                    </div>
+                                    <div class="col-lg-4 d-flex justify-content-end">
+                                        <span class="badge badge-sm bg-gradient-warning" style="height: 25px">
+                                            Pendiente
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row d-flex flex-column justify-content-center p-0 m-0 pt-3">
+                                    <div class="d-flex justify-content-center p-0 m-0 botones">
+                                        <a href="" class="btn bg-gradient-warning w-100 boton text-center p-0 pt-2 pb-2 m-1 align-items-center" style="font-size: 13px; width: 100px; margin-left: 0px !important;">
+                                            Ver más
+                                        </a>
+                                        <a href="" class="btn bg-gradient-primary w-100 boton text-center p-0 pt-2 pb-2 m-1 align-items-center" style="font-size: 13px; width: 100px; margin-right: 0px !important;">
+                                            Detalles
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mt-4 mb-4 tarjetaGeneral">
+                        <div class="card z-index-2">
+                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                                <div class="bg-gradient-success shadow-primary border-radius-lg py-3 pe-1" style="background-image: url('../../assets/img/img-1.jpg'); background-size: cover; background-position: center center;">
+                                    <div class="chart">
+                                        <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="mb-2 titulo">Título</h6>
+                                <div class="row">
+                                    <div class="col-lg-8 d-flex justify-content-start">
+                                        <div><span class="text-sm">Autor: Christopher PS</span><span> | </span><span class="text-sm">20/10/23, 16:40 p.m.</span></div>
+                                    </div>
+                                    <div class="col-lg-4 d-flex justify-content-end">
+                                        <span class="badge badge-sm bg-gradient-warning" style="height: 25px">
+                                            Pendiente
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row d-flex flex-column justify-content-center p-0 m-0 pt-3">
+                                    <div class="d-flex justify-content-center p-0 m-0 botones">
+                                        <a href="" class="btn bg-gradient-warning w-100 boton text-center p-0 pt-2 pb-2 m-1 align-items-center" style="font-size: 13px; width: 100px; margin-left: 0px !important;">
+                                            Ver más
+                                        </a>
+                                        <a href="" class="btn bg-gradient-primary w-100 boton text-center p-0 pt-2 pb-2 m-1 align-items-center" style="font-size: 13px; width: 100px; margin-right: 0px !important;">
+                                            Detalles
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -305,12 +332,13 @@ if (!isset($_SESSION["idusuario"])) {
                     </div>
                 </div>
             </div>
+            <!-- End Card -->
             <div class="row mt-4 mb-4">
                 <div class="col-lg-7 mb-4">
                     <div class="card">
                         <div class="card-header pb-0 p-3 pt-4">
                             <div class="d-flex justify-content-center">
-                                <h6 class="mb-2 loading-data">Cargando datos...</h6>
+                                <h6 class="mb-2 loading-data">Dispositivos vinculados</h6>
                             </div>
                         </div>
                         <!-- <hr class="horizontal dark my-1 mb-0"> -->
@@ -326,31 +354,31 @@ if (!isset($_SESSION["idusuario"])) {
                     <div class="card principal card-carousel overflow-hidden h-100 p-0" style="height: 380px !important;">
                         <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
                             <div class="carousel-inner border-radius-lg h-100">
-                                <div class="carousel-item h-100 active" style="background-image: url('../../dash/img/trabajo-dash-2.jpg'); background-size: cover; background-repeat: no-repeat;">
+                                <div class="carousel-item h-100 active" style="background-image: url('../../assets/img/trabajo-dash-2.jpg'); background-size: cover; background-repeat: no-repeat;">
                                     <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
                                         <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
                                             <i class="ni ni-camera-compact text-dark opacity-10"></i>
                                         </div>
-                                        <h5 class="text-white mb-1">Empresa TopiTop.</h5>
-                                        <p>Generando oportunidades laborales y conectando talento con empresas para un futuro profesional exitoso.</p>
+                                        <h5 class="text-white mb-1">Childminder Alert.</h5>
+                                        <p>Facilitando la gestión del TDAH para una vida más organizada.</p>
                                     </div>
                                 </div>
-                                <div class="carousel-item h-100" style="background-image: url('../../dash/img/trabajo-dash-3.jpg'); background-size: cover; background-repeat: no-repeat;">
+                                <div class="carousel-item h-100" style="background-image: url('../../assets/img/trabajo-dash-3.jpg'); background-size: cover; background-repeat: no-repeat;">
                                     <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
                                         <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
                                             <i class="ni ni-bulb-61 text-dark opacity-10"></i>
                                         </div>
                                         <h5 class="text-white mb-1">Trabajo en equipo.</h5>
-                                        <p>Como equipo, nos comprometemos en fomentar la colaboración y el desarrollo conjunto para alcanzar resultados sobresalientes.</p>
+                                        <p>Trabajamos codo a codo con expertos en TDAH y familias para ofrecer soluciones efectivas. Nuestro enfoque es colaborativo, centrado en el bienestar de los niños.</p>
                                     </div>
                                 </div>
-                                <div class="carousel-item h-100" style="background-image: url('../../dash/img/trabajo-dash-1.jpg'); background-size: cover; background-repeat: no-repeat;">
+                                <div class="carousel-item h-100" style="background-image: url('../../assets/img/trabajo-dash-1.jpg'); background-size: cover; background-repeat: no-repeat;">
                                     <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
                                         <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
                                             <i class="ni ni-trophy text-dark opacity-10"></i>
                                         </div>
                                         <h5 class="text-white mb-1">Cada vez mejorando.</h5>
-                                        <p>Constantemente nos superamos para ofrecer un servicio de calidad y eficiencia, con el objetivo de que nuestros postulantes encuentren trabajo fácil y rápido.</p>
+                                        <p>Nos esforzamos constantemente para ofrecer tecnología de vanguardia que ayude a los niños y adolescentes con TDAH a vivir de manera más independiente y organizada.</p>
                                     </div>
                                 </div>
                             </div>
@@ -418,11 +446,11 @@ if (!isset($_SESSION["idusuario"])) {
     ob_end_flush();
     ?>
 
-    <script src="../../../config/scripts/dashboard4.js"></script>
+    <!-- <script src="../../../config/scripts/dashboard4.js"></script>
 
     <script>
         $(document).ready(function() {
             listarPuestos();
             listarTabla();
         });
-    </script>
+    </script> -->

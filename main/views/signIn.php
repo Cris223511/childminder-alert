@@ -91,7 +91,7 @@ session_destroy(); // Destruimos la sesión.
         }
     </script>
 
-    <script src="../js/login-register4.js"></script>
+    <script src="../js/login-register.js"></script>
 </body>
 
 </html>

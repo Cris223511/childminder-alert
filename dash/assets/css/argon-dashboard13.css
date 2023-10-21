@@ -26968,7 +26968,8 @@ pre[class*="language-"] {
 }
 
 #iconNavbarSidenav {
-  height: 50px;
+  height: 45px;
+  width: 45px;
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -26978,6 +26979,10 @@ pre[class*="language-"] {
 #iconNavbarSidenav:hover {
   transition: .3s ease all;
   background-color: #4c5fce;
+}
+
+.navbar .sidenav-toggler-inner {
+  width: 0px !important;
 }
 
 /*# sourceMappingURL=dashboard-free.css.map */

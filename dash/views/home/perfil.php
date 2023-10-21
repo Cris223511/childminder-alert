@@ -4,7 +4,7 @@ require '../layout/header.php';
 
 if (!isset($_SESSION["idusuario"])) {
     session_destroy(); // Cierre de sesión adecuado.
-    header("Location: ../auth/error.php");
+    header("Location: ../../auth/error.php");
     exit(); // Y detenemos la ejecución después de la redirección.
 }
 ?>
@@ -29,16 +29,16 @@ if (!isset($_SESSION["idusuario"])) {
     }
 </style>
 
-<body class="g-sidenav-show bg-gray-100" id="contain-body" onload="cambiarTitulo('TopiTop | Perfil')">
+<body class="g-sidenav-show bg-gray-100" id="contain-body" onload="cambiarTitulo('Childminder Alert | Perfil')">
     <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg'); background-position-y: 50%;">
         <span class="mask bg-primary opacity-6"></span>
     </div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 panel" id="sidenav-main">
         <div class="sidenav-header">
-            <i class="fas fa-times p-3 cursor-pointer opacity-5 position-absolute end-0 top-0 d-xl-none d-block" aria-hidden="true" id="iconSidenav"></i>
+            <i class="fas fa-times p-3 cursor-pointer position-absolute end-0 top-0 d-xl-none d-block" aria-hidden="false" id="iconSidenav"></i>
             <a class="navbar-brand m-0">
-                <img src="../../dash/img/topitop-logo.png" class="navbar-brand-img h-100" alt="main_logo">
-                <span class="ms-2 font-weight-bold">TopiTop</span>
+                <img src="../../assets/img/childminder-logo.png" class="navbar-brand-img h-100" alt="main_logo">
+                <span class="ms-2 font-weight-bold">Childminder Alert</span>
             </a>
         </div>
         <hr class="horizontal dark mt-0">
@@ -55,101 +55,41 @@ if (!isset($_SESSION["idusuario"])) {
                         <span class="nav-link-text ms-1">Dashboard</span>
                     </a>
                 </li>
-                <?php
-                if ($_SESSION['rol'] == "admin" || $_SESSION['rol'] == "jefe_rrhh") {
-                ?>
-                    <li class="nav-item">
-                        <a href="../tiendas/tiendas.php" class="nav-link">
-                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-cart text-primary text-sm opacity-10"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Tiendas</span>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
-                <?php
-                if ($_SESSION['rol'] == "admin" || $_SESSION['rol'] == "jefe_tienda" || $_SESSION['rol'] == "jefe_rrhh") {
-                ?>
-                    <li class="nav-item">
-                        <a href="../solicitudes/solicitudes.php" class="nav-link">
-                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-paper-plane text-primary text-sm opacity-10 mb-1"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Solicitudes</span>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
-                <?php
-                if ($_SESSION['rol'] == "admin" || $_SESSION['rol'] == "jefe_tienda" || $_SESSION['rol'] == "jefe_rrhh") {
-                ?>
-                    <li class="nav-item">
-                        <a href="../puestos/puestos.php" class="nav-link">
-                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-basket text-primary text-sm opacity-10 mb-1"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Puestos</span>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
-                <?php
-                if ($_SESSION['rol'] == "admin" || $_SESSION['rol'] == "jefe_rrhh" || $_SESSION['rol'] == "psicologo") {
-                ?>
-                    <li class="nav-item">
-                        <a href="../postulantes/puestos.php" class="nav-link">
-                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-planet text-primary text-sm opacity-10 mb-1"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Postulantes</span>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
-                <?php
-                if ($_SESSION['rol'] == "admin" || $_SESSION['rol'] == "psicologo" || $_SESSION['rol'] == "jefe_rrhh") {
-                ?>
-                    <li class="nav-item">
-                        <a href="../evaluaciones/evaluaciones.php" class="nav-link">
-                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-chart-pie-35 text-primary text-sm opacity-10"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Evaluaciones</span>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
                 <li class="nav-item">
-                    <a href="../reportes/reportes.php" class="nav-link">
+                    <a href="" class="nav-link">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-puzzle-piece text-primary text-sm opacity-10 mb-1"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Actividades</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa fa-mobile text-primary text-sm opacity-10 mb-1"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Dispositivos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-book-bookmark text-primary text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Reportes</span>
                     </a>
                 </li>
-                <?php
-                if ($_SESSION['rol'] == "admin") {
-                ?>
-                    <li class="nav-item mt-3">
-                        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Admin</h6>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../usuarios/usuarios.php" class="nav-link">
-                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-primary text-sm opacity-10"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Usuarios</span>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Admin</h6>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-single-02 text-primary text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Usuarios</span>
+                    </a>
+                </li>
                 <li class="nav-item mt-3">
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Personal</h6>
                 </li>
@@ -199,7 +139,7 @@ if (!isset($_SESSION["idusuario"])) {
                         <li class="nav-item d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
                                 <i class="fa fa-user me-md-1"></i>
-                                <span class="d-md-inline d-none">Bienvenido: <?php echo $_SESSION['usuario']; ?> - <?php echo $_SESSION['rol_descripcion']; ?></span>
+                                <span class="d-md-inline d-none">Bienvenido: <?php echo ucwords($_SESSION['nombres']); ?> - <?php echo $_SESSION['rol_descripcion']; ?></span>
                             </a>
                         </li>
                     </ul>
@@ -333,7 +273,7 @@ if (!isset($_SESSION["idusuario"])) {
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="card card-profile">
-                            <img src="../../dash/img/profile.jpg" id="imagenmuestra" style="height: 300px;">
+                            <img src="../../assets/img/profile.jpg" id="imagenmuestra" style="height: 300px;">
                             <div class="row justify-content-center">
 
                             </div>
@@ -383,7 +323,7 @@ if (!isset($_SESSION["idusuario"])) {
                         <div class="row align-items-center justify-content-lg-between">
                             <div class="col-lg-12 mb-lg-0 mb-4">
                                 <div class="copyright text-center text-sm text-muted text-lg-start">
-                                    <strong>© 2023</strong> TopiTop, todos los derechos reservados.
+                                    <strong>© 2023</strong> Childminder Alert, todos los derechos reservados.
                                 </div>
                             </div>
                         </div>
@@ -398,4 +338,4 @@ if (!isset($_SESSION["idusuario"])) {
     ob_end_flush();
     ?>
 
-    <script src="../../../config/scripts/perfil5.js"></script>
+    <script src="../../scripts/perfil5.js"></script>

@@ -1,6 +1,6 @@
 <?php
 //Incluímos inicialmente la conexión a la base de datos
-require "../server/conexion.php";
+require "../config/conexion.php";
 
 class Perfil
 {

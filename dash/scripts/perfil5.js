@@ -13,7 +13,7 @@ function llenarFormulario() {
     $("#btnGuardar").prop("disabled", true);
     $("#btnGuardar").text("Cargando...").css("color", "white");
     $.ajax({
-        url: '../../../config/ajax/perfil.php?op=listar',
+        url: '../../ajax/perfil.php?op=listar',
         type: 'GET',
         dataType: 'json',
         success: function (data) {
@@ -26,10 +26,10 @@ function llenarFormulario() {
             // INPUTS
             $("#nombres").val(data.nombres);
             $("#apellidos").val(data.apellidos);
-            $("#rol").val(data.rol === "admin" ? "Administrador" : (data.rol === "jefe_tienda" ? "Jefe de Tiendas" : (data.rol === "jefe_rrhh" ? "Jefe de RRHH" : "")));
+            $("#rol").val(data.rol === "admin" ? "Administrador" : "Usuario");
             $("#usuario").val(data.usuario);
             $("#email").val(data.email);
-            $("#imagenmuestra").attr("src", "../../../files/" + data.imagen);
+            $("#imagenmuestra").attr("src", "../../files/" + data.imagen);
             $("#imagenactual").val(data.imagen);
             $("#fecha_nac").val(data.fecha_nac);
             $("#tipo_documento").val(data.tipo_documento);
@@ -68,7 +68,7 @@ function guardaryeditar(e) {
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
-        url: "../../../config/ajax/perfil.php?op=editar",
+        url: "../../ajax/perfil.php?op=editar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -90,7 +90,7 @@ function guardaryeditar(e) {
 // función para actualizar la información del usuario en sesión en tiempo real
 function actualizarInfoUsuario() {
     $.ajax({
-        url: "../../../config/ajax/perfil.php?op=actualizarSession",
+        url: "../../ajax/perfil.php?op=actualizarSession",
         type: 'GET',
         dataType: 'json',
         success: function (data) {
