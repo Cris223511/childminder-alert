@@ -4,14 +4,14 @@ require '../layout/header.php';
 
 if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
     session_destroy(); // Cierre de sesión adecuado.
-    header("Location: ../auth/error.php");
+    header("Location: ../../auth/error.php");
     exit(); // Y detenemos la ejecución después de la redirección.
 }
 ?>
 
 <body class="g-sidenav-show bg-gray-100">
     <div class="bg-gradient-dark">
-        <div class="page-header min-vh-50" style="background-image: url('../../dash/img/photo-form6.jpg');">
+        <div class="page-header min-vh-50" style="background-image: url('../../assets/img/photo-form6.jpg');">
             <span class="mask bg-gradient-dark opacity-6"></span>
             <div class="container">
                 <div class="row justify-content-center">
@@ -131,7 +131,7 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
             <div class="row align-items-center justify-content-lg-between">
                 <div class="col-lg-12 mb-lg-0 mb-4">
                     <div class="copyright text-center text-sm text-muted text-lg-center">
-                        <strong>© 2023</strong> TopiTop, todos los derechos reservados.
+                        <strong>© 2023</strong> Childminder Alert, todos los derechos reservados.
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
 
     <script>
         window.onload = function() {
-            cambiarTitulo('TopiTop | Detalles Usuarios')
+            cambiarTitulo('Childminder Alert | Detalles Usuarios')
         }
     </script>
 

@@ -4,7 +4,7 @@ if (strlen(session_id()) < 1) {
     session_start(); // Validamos si existe o no la sesión.
 }
 
-if ((empty($_SESSION['idusuario']) || $_SESSION['rol'] !== 'admin') && $_GET["op"] !== 'verificar') {
+if ((empty($_SESSION['idusuario']) || $_SESSION['rol'] !== 'admin')) {
     echo json_encode(['error' => 'No está autorizado para realizar esta acción.']);
     exit();
 }

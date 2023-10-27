@@ -21433,10 +21433,6 @@ fieldset:disabled .btn {
   cursor: pointer;
 }
 
-.fixed-plugin .add {
-  border-radius: 20px !important;
-}
-
 .fixed-plugin .fixed-plugin-button i {
   pointer-events: none;
 }

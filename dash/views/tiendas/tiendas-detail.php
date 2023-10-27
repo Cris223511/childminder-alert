@@ -76,7 +76,7 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin" && $_SESSION['
             <div class="row align-items-center justify-content-lg-between">
                 <div class="col-lg-12 mb-lg-0 mb-4">
                     <div class="copyright text-center text-sm text-muted text-lg-center">
-                        <strong>© 2023</strong> TopiTop, todos los derechos reservados.
+                        <strong>© 2023</strong> Childminder Alert, todos los derechos reservados.
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin" && $_SESSION['
 
     <script>
         window.onload = function() {
-            cambiarTitulo('TopiTop | Detalles Tienda')
+            cambiarTitulo('Childminder Alert | Detalles Tienda')
         }
     </script>
 

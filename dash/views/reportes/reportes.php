@@ -79,7 +79,7 @@ if (!isset($_SESSION["idusuario"])) {
     }
 </style>
 
-<body class="g-sidenav-show bg-gray-100" id="contain-body" onload="cambiarTitulo('TopiTop | Reportes')">
+<body class="g-sidenav-show bg-gray-100" id="contain-body" onload="cambiarTitulo('Childminder Alert | Reportes')">
     <div class="min-height-400 bg-primary position-absolute w-100"></div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 panel" id="sidenav-main">
         <div class="sidenav-header">

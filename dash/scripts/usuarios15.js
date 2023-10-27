@@ -19,7 +19,7 @@ function agregar(e) {
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
-        url: "../../../config/ajax/usuarios.php?op=agregaryeditar",
+        url: "../../config/ajax/usuarios.php?op=agregaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -48,7 +48,7 @@ function editar(e) {
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
-        url: "../../../config/ajax/usuarios.php?op=agregaryeditar",
+        url: "../../config/ajax/usuarios.php?op=agregaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -74,7 +74,7 @@ function editarRol(e) {
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
-        url: "../../../config/ajax/usuarios.php?op=editarRol",
+        url: "../../config/ajax/usuarios.php?op=editarRol",
         type: "POST",
         data: formData,
         contentType: false,
@@ -103,7 +103,7 @@ function mostrar() {
         $("#btnGuardar").prop("disabled", true);
         $("#btnGuardar").text("Cargando...").css("color", "white");
 
-        $.post("../../../config/ajax/usuarios.php?op=mostrar", { idusuario: idusuario }, function (data, status) {
+        $.post("../../config/ajax/usuarios.php?op=mostrar", { idusuario: idusuario }, function (data, status) {
             data = JSON.parse(data);
             console.log(data);
             if (data != null) {
@@ -140,7 +140,7 @@ function mostrar() {
 
 function listar() {
     $.ajax({
-        url: '../../../config/ajax/usuarios.php?op=listar',
+        url: '../../config/ajax/usuarios.php?op=listar',
         type: 'GET',
         dataType: 'json',
         success: function (data) {
@@ -251,7 +251,7 @@ function eliminar(idusuario, nombres) {
             $(".botones button").prop("disabled", true);
             $(".botones button").css("color", "white");
 
-            $.post("../../../config/ajax/usuarios.php?op=eliminar", { idusuario: idusuario }, function (e) {
+            $.post("../../config/ajax/usuarios.php?op=eliminar", { idusuario: idusuario }, function (e) {
                 console.log("el servidor responde: " + e)
                 /* ----------------- Limpiamos la data y agregamos la fila por defecto =) ----------------- */
                 $('#myTable tbody').empty();
