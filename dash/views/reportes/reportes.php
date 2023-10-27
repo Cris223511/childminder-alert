@@ -367,7 +367,7 @@ if (!isset($_SESSION["idusuario"])) {
     ob_end_flush();
     ?>
     <script src="../../../assets/dash/js/plugins/chartjs.min.js"></script>
-    <script src="../../../config/scripts/reportes13.js"></script>
+    <script src="../../scripts/reportes13.js"></script>
 
     <script>
         $(document).ready(function() {

@@ -214,8 +214,8 @@ if (!isset($_SESSION["idusuario"])) {
                 </div>
             </div>
             <!-- Start Card -->
-            <div class="mt-5">
-                <h6 class="mb-4 fw-bold" id="noResults" style="color: white; display: none;">¡Opps!... La actividad que usted buscó no existe.</h6>
+            <div class="mt-4">
+                <h6 class="mb-1 fw-bold" id="noResults" style="color: white; display: none;">¡Opps!... La actividad que usted buscó no existe.</h6>
                 <!-- <div class="row puestos">
                     <div class="col-lg-4 col-md-6">
                         <span class="w-100 card loader"></span>
@@ -374,7 +374,7 @@ if (!isset($_SESSION["idusuario"])) {
                                         </td>
                                         <td>
                                             <div class="text-center">
-                                                <h6 class="text-sm fw-normal mb-0">2 pendientes</h6>
+                                                <h6 class="text-sm fw-normal mb-0">2 registrados</h6>
                                             </div>
                                         </td>
                                         <td class="align-middle text-sm text-center">
@@ -482,7 +482,7 @@ if (!isset($_SESSION["idusuario"])) {
     ob_end_flush();
     ?>
 
-    <!-- <script src="../../../config/scripts/dashboard4.js"></script>
+    <!-- <script src="../../scripts/dashboard4.js"></script>
 
     <script>
         $(document).ready(function() {

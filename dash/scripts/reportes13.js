@@ -8,7 +8,7 @@ let postulantesData;
 
 function mostrarDatosReporte() {
     $.ajax({
-        url: '../../../config/ajax/reportes.php?op=mostrarDatosReporte',
+        url: '../../ajax/reportes.php?op=mostrarDatosReporte',
         type: 'GET',
         dataType: 'json',
         success: function (data) {

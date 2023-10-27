@@ -179,68 +179,8 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
                                     <tbody style="overflow: auto;">
                                         <tr>
                                             <td colspan="16" class="align-middle text-sm text-center pt-3">
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <p class="text-xs mb-0 ps-2">Christopher</p>
-                                                    </div>
-                                                </div>
+                                                Cargando datos...
                                             </td>
-                                            <td>
-                                                <p class="text-xs mb-0">APS</p>
-                                            </td>
-                                            <td class="align-middle text-sm">
-                                                <p class="text-xs mb-0">cris223511.dev</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs mb-0">DNI</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs mb-0">76655698</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs mb-0">973182294</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs mb-0">07/05/2001</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs mb-0">cris_antonio2001@hotmail.com</p>
-                                            </td>
-                                            <td class="align-middle text-sm">
-                                                <p class="text-xs mb-0">Administrador</p>
-                                            </td>
-                                            <td class="align-middle text-sm text-center">
-                                                <span class="badge badge-sm bg-gradient-success">
-                                                    En línea
-                                                </span>
-                                            </td>
-                                            <td class="text-xs text-center mb-0">
-                                                <img src="../../files/1698431772.jpg" width="50px" height="50px" style="border-radius: 50%;" />
-                                            </td>
-                                            <td class="align-middle">
-                                                <div class="row d-flex flex-column justify-content-center p-0 m-0 botones">
-                                                    <div class="d-flex justify-content-center p-0 m-0">
-                                                        <button onclick="window.location.href='usuarios-edit.php'" class="btn bg-gradient-warning col-6 boton text-center p-0 pt-1 pb-1 m-1 align-items-center" style="font-size: 13px; width: 100px;">
-                                                            Editar
-                                                        </button>
-                                                        <button onclick="window.location.href='usuarios-detail.php'" class="btn bg-gradient-primary col-6 boton text-center p-0 pt-1 pb-1 m-1 align-items-center" style="font-size: 13px; width: 100px;">
-                                                            Detalles
-                                                        </button>
-                                                    </div>
-                                                    <div class="d-flex justify-content-center p-0 m-0">
-                                                        <button id="btnEliminar" class="btn bg-gradient-danger col-6 boton text-center p-0 pt-1 pb-1 m-1 align-items-center" style="font-size: 13px; width: 100px; cursor: pointer;">
-                                                            Eliminar
-                                                        </button>
-                                                        <button onclick="window.location.href='usuarios-rol-edit.php'" class="btn bg-gradient-success col-6 boton text-center p-0 pt-1 pb-1 m-1 align-items-center" style="font-size: 13px; width: 100px;">
-                                                            Asignar
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -304,10 +244,10 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
     ob_end_flush();
     ?>
 
-    <!-- <script src="../../../config/scripts/usuarios15.js"></script>
+    <script src="../../scripts/usuarios15.js"></script>
 
     <script>
         $(document).ready(function() {
             listar();
         });
-    </script> -->
+    </script>

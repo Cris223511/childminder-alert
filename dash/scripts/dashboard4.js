@@ -1,6 +1,6 @@
 function listarPuestos() {
     $.ajax({
-        url: '../../../config/ajax/puestos.php?op=listarPuestosDashboard',
+        url: '../../ajax/puestos.php?op=listarPuestosDashboard',
         type: 'GET',
         dataType: 'json',
         success: function (data) {
@@ -61,7 +61,7 @@ function listarPuestos() {
 
 function listarTabla() {
     $.ajax({
-        url: '../../../config/ajax/puestos.php?op=listarTablaDashboard',
+        url: '../../ajax/puestos.php?op=listarTablaDashboard',
         type: 'GET',
         dataType: 'json',
         success: function (data) {

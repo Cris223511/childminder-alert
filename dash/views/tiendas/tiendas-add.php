@@ -99,7 +99,7 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin" && $_SESSION['
     ob_end_flush();
     ?>
 
-    <script src="../../../config/scripts/tiendas1.js"></script>
+    <script src="../../scripts/tiendas1.js"></script>
 
     <script>
         $(document).ready(function() {

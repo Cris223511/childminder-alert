@@ -149,7 +149,7 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
     ob_end_flush();
     ?>
 
-    <script src="../../../config/scripts/usuarios15.js"></script>
+    <script src="../../scripts/usuarios15.js"></script>
 
     <script>
         $(document).ready(function() {

@@ -22,7 +22,7 @@ function agregar(e) {
     $("#fecha_hora").prop("disabled", true);
 
     $.ajax({
-        url: "../../../config/ajax/tiendas.php?op=agregaryeditar",
+        url: "../../ajax/tiendas.php?op=agregaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -54,7 +54,7 @@ function editar(e) {
     $("#fecha_hora").prop("disabled", true);
 
     $.ajax({
-        url: "../../../config/ajax/tiendas.php?op=agregaryeditar",
+        url: "../../ajax/tiendas.php?op=agregaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -83,7 +83,7 @@ function mostrar() {
         $("#btnGuardar").prop("disabled", true);
         $("#btnGuardar").text("Cargando...").css("color", "white");
 
-        $.post("../../../config/ajax/tiendas.php?op=mostrar", { idtienda: idtienda }, function (data, status) {
+        $.post("../../ajax/tiendas.php?op=mostrar", { idtienda: idtienda }, function (data, status) {
             data = JSON.parse(data);
             console.log(data);
             if (data != null) {
@@ -109,7 +109,7 @@ function mostrar() {
 
 function listar() {
     $.ajax({
-        url: '../../../config/ajax/tiendas.php?op=listar',
+        url: '../../ajax/tiendas.php?op=listar',
         type: 'GET',
         dataType: 'json',
         success: function (data) {
@@ -199,7 +199,7 @@ function activar(idtienda, nombre) {
             );
             $(".botones button").prop("disabled", true);
             $(".botones button").css("color", "white");
-            $.post("../../../config/ajax/tiendas.php?op=activar", { idtienda: idtienda }, function (e) {
+            $.post("../../ajax/tiendas.php?op=activar", { idtienda: idtienda }, function (e) {
                 console.log("el servidor responde: " + e)
                 /* ----------------- Y volvemos a listar =) ----------------- */
                 listar();
@@ -234,7 +234,7 @@ function desactivar(idtienda, nombre) {
             );
             $(".botones button").prop("disabled", true);
             $(".botones button").css("color", "white");
-            $.post("../../../config/ajax/tiendas.php?op=desactivar", { idtienda: idtienda }, function (e) {
+            $.post("../../ajax/tiendas.php?op=desactivar", { idtienda: idtienda }, function (e) {
                 console.log("el servidor responde: " + e)
                 /* ----------------- Y volvemos a listar =) ----------------- */
                 listar();

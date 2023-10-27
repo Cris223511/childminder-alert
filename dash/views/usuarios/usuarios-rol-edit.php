@@ -55,9 +55,7 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
                                                 <select class="form-control" name="rol" id="rol" required>
                                                     <option value="">- Seleccione -</option>
                                                     <option value="admin">Administrador</option>
-                                                    <option value="jefe_tienda">Jefe de Tiendas</option>
-                                                    <option value="jefe_rrhh">Jefe de RRHH</option>
-                                                    <option value="psicologo">Psicólogo</option>
+                                                    <option value="usuario">Usuario</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -99,7 +97,7 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
     ob_end_flush();
     ?>
 
-    <script src="../../../config/scripts/usuarios15.js"></script>
+    <script src="../../scripts/usuarios15.js"></script>
 
     <script>
         $(document).ready(function() {

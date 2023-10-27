@@ -19,7 +19,7 @@ function agregar(e) {
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
-        url: "../../config/ajax/usuarios.php?op=agregaryeditar",
+        url: "../../ajax/usuarios.php?op=agregaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -35,7 +35,7 @@ function agregar(e) {
             $("#btnGuardar").text("Agregar");
 
             setTimeout(function () {
-                $(location).attr("href", "../../../assets/views/usuarios/usuarios.php");
+                $(location).attr("href", "../../views/usuarios/usuarios.php");
             }, 2500);
         }
     });
@@ -48,7 +48,7 @@ function editar(e) {
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
-        url: "../../config/ajax/usuarios.php?op=agregaryeditar",
+        url: "../../ajax/usuarios.php?op=agregaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -74,7 +74,7 @@ function editarRol(e) {
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
-        url: "../../config/ajax/usuarios.php?op=editarRol",
+        url: "../../ajax/usuarios.php?op=editarRol",
         type: "POST",
         data: formData,
         contentType: false,
@@ -103,7 +103,7 @@ function mostrar() {
         $("#btnGuardar").prop("disabled", true);
         $("#btnGuardar").text("Cargando...").css("color", "white");
 
-        $.post("../../config/ajax/usuarios.php?op=mostrar", { idusuario: idusuario }, function (data, status) {
+        $.post("../../ajax/usuarios.php?op=mostrar", { idusuario: idusuario }, function (data, status) {
             data = JSON.parse(data);
             console.log(data);
             if (data != null) {
@@ -114,7 +114,7 @@ function mostrar() {
                 $("#usuario").val(data.usuario);
                 $("#clave").val(data.clave);
                 $("#email").val(data.email);
-                $("#imagenmuestra").attr("src", "../../../files/" + data.imagen);
+                $("#imagenmuestra").attr("src", "../../files/" + data.imagen);
                 $("#imagenactual").val(data.imagen);
                 $("#fecha_nac").val(data.fecha_nac);
                 $("#tipo_documento").val(data.tipo_documento);
@@ -140,7 +140,7 @@ function mostrar() {
 
 function listar() {
     $.ajax({
-        url: '../../config/ajax/usuarios.php?op=listar',
+        url: '../../ajax/usuarios.php?op=listar',
         type: 'GET',
         dataType: 'json',
         success: function (data) {
@@ -189,7 +189,7 @@ function listar() {
                             </span>
                         </td>
                         <td class="text-xs text-center mb-0">
-                            <img src="../../../files/${usuario.imagen}" width="50px" height="50px" style="border-radius: 50%;" />
+                            <img src="../../files/${usuario.imagen}" width="50px" height="50px" style="border-radius: 50%;" />
                         </td>
                         <td class="align-middle">
                             <div class="row d-flex flex-column justify-content-center p-0 m-0 botones">
@@ -251,7 +251,7 @@ function eliminar(idusuario, nombres) {
             $(".botones button").prop("disabled", true);
             $(".botones button").css("color", "white");
 
-            $.post("../../config/ajax/usuarios.php?op=eliminar", { idusuario: idusuario }, function (e) {
+            $.post("../../ajax/usuarios.php?op=eliminar", { idusuario: idusuario }, function (e) {
                 console.log("el servidor responde: " + e)
                 /* ----------------- Limpiamos la data y agregamos la fila por defecto =) ----------------- */
                 $('#myTable tbody').empty();
