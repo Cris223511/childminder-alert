@@ -48,7 +48,7 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="../actividades/actividades.php" class="nav-link">
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-puzzle-piece text-primary text-sm opacity-10 mb-1"></i>
                         </div>
@@ -137,7 +137,7 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
                         <li class="nav-item d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
                                 <i class="fa fa-user me-md-1"></i>
-                                <span class="d-md-inline d-none">Bienvenido: <?php echo $_SESSION['usuario']; ?> - <?php echo $_SESSION['rol_descripcion']; ?></span>
+                                <span class="d-md-inline d-none">Bienvenido: <?php echo ucwords($_SESSION['usuario']); ?> - <?php echo $_SESSION['rol_descripcion']; ?></span>
                             </a>
                         </li>
                         <li class="nav-item px-3 d-flex align-items-center">

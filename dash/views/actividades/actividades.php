@@ -2,12 +2,13 @@
 ob_start();
 require '../layout/header.php';
 
-if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin" && $_SESSION['rol'] != "jefe_rrhh") {
+if (!isset($_SESSION["idusuario"])) {
     session_destroy(); // Cierre de sesión adecuado.
-    header("Location: ../auth/error.php");
+    header("Location: ../../auth/error.php");
     exit(); // Y detenemos la ejecución después de la redirección.
 }
 ?>
+
 <style>
     .swal2-confirm,
     .swal2-cancel {
@@ -21,16 +22,63 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin" && $_SESSION['
     .swal2-actions-custom {
         margin: 0 !important;
     }
+
+    .swal2-shown {
+        overflow: unset !important;
+        padding-right: 0px !important;
+    }
+
+    .loader {
+        width: 400px;
+        height: 310px;
+        display: block;
+        position: relative;
+        background: #FFF;
+        box-sizing: border-box;
+        border-radius: 20px;
+    }
+
+    .loader::after {
+        content: '';
+        width: calc(100% - 30px);
+        height: calc(100% - 15px);
+        top: 15px;
+        left: 15px;
+        position: absolute;
+        background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5) 50%, transparent 100%),
+            linear-gradient(#DDD 100px, transparent 0),
+            linear-gradient(#DDD 16px, transparent 0),
+            linear-gradient(#DDD 50px, transparent 0);
+        background-repeat: no-repeat;
+        background-size: 75px 175px, 100% 100px, 100% 16px, 100% 30px;
+        background-position: -185px 0, center 0, center 115px, center 142px;
+        box-sizing: border-box;
+        animation: animloader 1s linear infinite;
+    }
+
+    @keyframes animloader {
+        to {
+            background-position: 285px 0, center 0, center 115px, center 142px;
+        }
+    }
+
+    .titulo {
+        font-size: 1.1rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 </style>
 
-<body class="g-sidenav-show bg-gray-100" id="contain-body" onload="cambiarTitulo('Childminder Alert | Tiendas')">
+<body class="g-sidenav-show bg-gray-100" id="contain-body" onload="cambiarTitulo('Childminder Alert | Actividades')">
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 panel" id="sidenav-main">
         <div class="sidenav-header">
-            <i class="fas fa-times p-3 cursor-pointer  opacity-5 position-absolute end-0 top-0 d-xl-none d-block" aria-hidden="true" id="iconSidenav"></i>
+            <i class="fas fa-times p-3 cursor-pointer position-absolute end-0 top-0 d-xl-none d-block" aria-hidden="false" id="iconSidenav"></i>
             <a class="navbar-brand m-0">
-                <img src="../../dash/img/topitop-logo.png" class="navbar-brand-img h-100" alt="main_logo">
-                <span class="ms-2 font-weight-bold">TopiTop</span>
+                <img src="../../assets/img/childminder-logo.png" class="navbar-brand-img h-100" alt="main_logo">
+                <span class="ms-2 font-weight-bold">Childminder Alert</span>
             </a>
         </div>
         <hr class="horizontal dark mt-0">
@@ -47,87 +95,31 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin" && $_SESSION['
                         <span class="nav-link-text ms-1">Dashboard</span>
                     </a>
                 </li>
-                <?php
-                if ($_SESSION['rol'] == "admin" || $_SESSION['rol'] == "jefe_rrhh") {
-                ?>
-                    <li class="nav-item">
-                        <a href="tiendas.php" class="nav-link active">
-                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-cart text-primary text-sm opacity-10"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Tiendas</span>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
-                <?php
-                if ($_SESSION['rol'] == "admin" || $_SESSION['rol'] == "jefe_tienda" || $_SESSION['rol'] == "jefe_rrhh") {
-                ?>
-                    <li class="nav-item">
-                        <a href="../solicitudes/solicitudes.php" class="nav-link">
-                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-paper-plane text-primary text-sm opacity-10 mb-1"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Solicitudes</span>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
-                <?php
-                if ($_SESSION['rol'] == "admin" || $_SESSION['rol'] == "jefe_tienda" || $_SESSION['rol'] == "jefe_rrhh") {
-                ?>
-                    <li class="nav-item">
-                        <a href="../puestos/puestos.php" class="nav-link">
-                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-basket text-primary text-sm opacity-10 mb-1"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Puestos</span>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
-                <?php
-                if ($_SESSION['rol'] == "admin" || $_SESSION['rol'] == "jefe_rrhh" || $_SESSION['rol'] == "psicologo") {
-                ?>
-                    <li class="nav-item">
-                        <a href="../postulantes/puestos.php" class="nav-link">
-                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-planet text-primary text-sm opacity-10 mb-1"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Postulantes</span>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
-                <?php
-                if ($_SESSION['rol'] == "admin" || $_SESSION['rol'] == "psicologo" || $_SESSION['rol'] == "jefe_rrhh") {
-                ?>
-                    <li class="nav-item">
-                        <a href="../evaluaciones/evaluaciones.php" class="nav-link">
-                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-chart-pie-35 text-primary text-sm opacity-10"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Evaluaciones</span>
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
                 <li class="nav-item">
-                    <a href="../reportes/reportes.php" class="nav-link">
+                    <a href="actividades.php" class="nav-link active">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-puzzle-piece text-primary text-sm opacity-10 mb-1"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Actividades</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa fa-mobile text-primary text-sm opacity-10 mb-1"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Dispositivos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-book-bookmark text-primary text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Reportes</span>
                     </a>
                 </li>
-                <?php
-                if ($_SESSION['rol'] == "admin") {
-                ?>
+                <?php if ($_SESSION["rol"] == "admin") { ?>
                     <li class="nav-item mt-3">
                         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Admin</h6>
                     </li>
@@ -139,9 +131,7 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin" && $_SESSION['
                             <span class="nav-link-text ms-1">Usuarios</span>
                         </a>
                     </li>
-                <?php
-                }
-                ?>
+                <?php } ?>
                 <li class="nav-item mt-3">
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Personal</h6>
                 </li>
@@ -171,9 +161,9 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin" && $_SESSION['
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Inicio</a></li>
-                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">Tiendas</li>
+                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">Actividades</li>
                     </ol>
-                    <h6 class="font-weight-bolder text-white mb-0">Tiendas</h6>
+                    <h6 class="font-weight-bolder text-white mb-0">Actividades</h6>
                 </nav>
                 <div id="iconNavbarSidenav">
                     <li class="nav-item d-xl-none p-3 pt-0 pb-0 d-flex align-items-start">
@@ -188,14 +178,14 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin" && $_SESSION['
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center col-xl-3 col-lg-5 col-6">
                         <div class="input-group">
                             <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" id="txtBuscar" name="txtBuscar" placeholder="Buscar tienda.">
+                            <input type="text" class="form-control" id="txtBuscar2" name="txtBuscar2" placeholder="Buscar actividad.">
                         </div>
                     </div>
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
                                 <i class="fa fa-user me-md-1"></i>
-                                <span class="d-md-inline d-none">Bienvenido: <?php echo $_SESSION['usuario']; ?> - <?php echo $_SESSION['rol_descripcion']; ?></span>
+                                <span class="d-md-inline d-none">Bienvenido: <?php echo ucwords($_SESSION['usuario']); ?> - <?php echo $_SESSION['rol_descripcion']; ?></span>
                             </a>
                         </li>
                         <li class="nav-item px-3 d-flex align-items-center">
@@ -208,55 +198,50 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin" && $_SESSION['
             </div>
         </nav>
         <!-- End Navbar -->
-        <div class="container-fluid py-4">
+        <div class="container-fluid py-2">
             <div class="row">
-                <div class="col-12">
-                    <div class="card mb-4">
-                        <div class="card-header pb-0">
-                            <h6>Lista de tiendas</h6>
-                        </div>
-                        <div class="card-body px-0 pt-0 pb-2">
-                            <div id="tabla" class="table-responsive p-0" style="max-height: 495px;">
-                                <table id="myTable" class="table align-items-center mb-0">
-                                    <thead>
-                                        <tr class="sticky sticky-top bg-white" style="box-shadow: 0px 0px 20px -10px;">
-                                            <th class="text-uppercase text-xxs font-weight-bolder opacity-7">Nombre</th>
-                                            <th class="text-uppercase text-xxs font-weight-bolder opacity-7 ps-2">Agregado por</th>
-                                            <th class="text-uppercase text-xxs font-weight-bolder opacity-7 ps-2">Dirección</th>
-                                            <th class="text-uppercase text-xxs font-weight-bolder opacity-7 ps-2">Teléfono</th>
-                                            <th class="text-uppercase text-xxs font-weight-bolder opacity-7 ps-2">Fecha y hora</th>
-                                            <th class="text-uppercase text-xxs font-weight-bolder opacity-7 text-center">Estado</th>
-                                            <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">Opciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody style="overflow: auto;">
-                                        <tr>
-                                            <td colspan="16" class="align-middle text-sm text-center pt-3">
-                                                Cargando datos...
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                <div class="col-12 mb-xl-0">
+                    <div class="card">
+                        <div class="card-body p-3">
+                            <div class="row">
+                                <div class="col-8 d-flex align-items-center">
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">TUS ACTIVIDADES</p>
+                                </div>
+                                <div class="col-4 text-end">
+                                    <div class="icon icon-shape bg-gradient-info shadow-danger text-center rounded-circle">
+                                        <i class="ni ni-satisfied text-lg opacity-10" aria-hidden="true"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Start Card -->
+            <div class="mt-4">
+                <h6 class="mb-4 fw-bold" id="noResults" style="color: white; display: none;">¡Opps!... La actividad que usted buscó no existe.</h6>
+                <div class="row actividades">
+                    <div class="col-lg-4 col-md-6">
+                        <span class="w-100 card loader"></span>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <span class="w-100 card loader"></span>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <span class="w-100 card loader"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- End Card -->
         </div>
     </main>
     <div class="fixed-plugin" id="ajustes">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" id="mostrar-ajustes2">
             <i class="fa fa-cog py-2"> </i>
         </a>
-        <?php
-        if ($_SESSION['rol'] == "admin" || $_SESSION['rol'] == "jefe_rrhh") {
-        ?>
-            <a href="tiendas-add.php" class="fixed-plugin-button text-dark position-fixed px-3 py-2 add" style="transform: translate(0, -70px);">
-                <h6 style="color: #344767 !important;" class="p-0 m-0">agregar</h6>
-            </a>
-        <?php
-        }
-        ?>
+        <a href="actividades-add.php" class="fixed-plugin-button text-dark position-fixed px-3 py-2 add" style="transform: translate(0, -70px)">
+            <i class="fa fa-plus py-2"> </i>
+        </a>
         <div class="card shadow-lg">
             <div class="card-header pb-0 pt-3 ">
                 <div class="float-start">
@@ -303,7 +288,7 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin" && $_SESSION['
     ob_end_flush();
     ?>
 
-    <script src="../../scripts/tiendas1.js"></script>
+    <script src="../../scripts/actividades4.js"></script>
 
     <script>
         $(document).ready(function() {

@@ -147,6 +147,32 @@
 </script>
 
 <script>
+  function input_fecha(number) {
+    switch (number) {
+      case 1:
+        var hoy = new Date();
+        var fecha = hoy.getFullYear() + '-' + ('0' + (hoy.getMonth() + 1)).slice(-2) + '-' + ('0' + hoy.getDate()).slice(-2);
+        var hora = ('0' + hoy.getHours()).slice(-2) + ':' + ('0' + hoy.getMinutes()).slice(-2);
+
+        var fecha_hora = fecha + 'T' + hora;
+        document.getElementById('fecha_hora').value = fecha_hora;
+        break;
+      case 2:
+        var fecha = new Date();
+        var mes = fecha.getMonth() + 1;
+        var dia = fecha.getDate();
+        var ano = fecha.getFullYear();
+        if (dia < 10)
+          dia = '0' + dia;
+        if (mes < 10)
+          mes = '0' + mes;
+        document.getElementById('fecha').value = ano + "-" + mes + "-" + dia;
+        break;
+    }
+  }
+</script>
+
+<script>
   function cambiarTitulo(nuevoTitulo) {
     document.title = nuevoTitulo;
   }

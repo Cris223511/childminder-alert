@@ -107,7 +107,7 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
                                                 <label for="titulo">Foto:</label>
                                                 <input type="file" class="form-control" name="imagen" id="imagen" accept="image/x-png,image/gif,image/jpeg">
                                                 <input type="hidden" name="imagenactual" id="imagenactual">
-                                                <img class="mt-2" src="../../dash/img/profile.jpg" id="imagenmuestra" style="height: 150px; border-radius: 22px;">
+                                                <img class="mt-2" src="../../../dash/assets/img/profile.jpg" id="imagenmuestra" style="height: 150px; border-radius: 22px;">
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-2">
