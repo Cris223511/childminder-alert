@@ -43,7 +43,7 @@
                                         </p>
                                     </div>
                                     <div class="col-md-12 mb-3 mt-3 d-flex align-items-center justify-content-start w-sm-50 w-lg-25">
-                                        <button class="btn bg-gradient-info w-100 my-4 mt-2 mb-2" id="volver">Volver</button>
+                                        <button class="btn bg-gradient-info w-100 my-4 mt-2 mb-2" onclick="window.location.href = '../../main/views/signIn.php'">Volver</button>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mb-3 mt-3 d-flex align-items-center justify-content-sm-start justify-content-lg-end">
@@ -63,7 +63,4 @@
         function cambiarTitulo(nuevoTitulo) {
             document.title = nuevoTitulo;
         }
-        document.getElementById("volver").addEventListener("click", function() {
-            window.history.back();
-        });
     </script>
