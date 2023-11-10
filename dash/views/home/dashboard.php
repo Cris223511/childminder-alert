@@ -100,7 +100,7 @@ if (!isset($_SESSION["idusuario"])) {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="../dispositivos/dispositivos.php" class="nav-link">
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa fa-mobile text-primary text-sm opacity-10 mb-1"></i>
                         </div>
@@ -216,7 +216,7 @@ if (!isset($_SESSION["idusuario"])) {
             <!-- Start Card -->
             <div class="mt-4">
                 <h6 class="mb-1 fw-bold" id="noResults" style="color: white; display: none;">¡Opps!... La actividad que usted buscó no existe.</h6>
-                <!-- <div class="row puestos">
+                <div class="row actividades">
                     <div class="col-lg-4 col-md-6">
                         <span class="w-100 card loader"></span>
                     </div>
@@ -226,110 +226,6 @@ if (!isset($_SESSION["idusuario"])) {
                     <div class="col-lg-4 col-md-6 mb-4">
                         <span class="w-100 card loader"></span>
                     </div>
-                </div> -->
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mt-4 mb-4 tarjetaGeneral">
-                        <div class="card z-index-2">
-                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-                                <div class="bg-gradient-success shadow-primary border-radius-lg py-3 pe-1" style="background-image: url('../../assets/img/img-1.jpg'); background-size: cover; background-position: center center;">
-                                    <div class="chart">
-                                        <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="mb-2 titulo">Ayudar en recoger la ropa</h6>
-                                <div class="row">
-                                    <div class="col-lg-8 d-flex justify-content-start">
-                                        <div><span class="text-sm">Autor: Christopher PS</span><span> | </span><span class="text-sm">20/10/23, 16:40 p.m.</span></div>
-                                    </div>
-                                    <div class="col-lg-4 d-flex justify-content-end">
-                                        <span class="badge badge-sm bg-gradient-warning" style="height: 25px">
-                                            Pendiente
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="row d-flex flex-column justify-content-center p-0 m-0 pt-3">
-                                    <div class="d-flex justify-content-center p-0 m-0 botones">
-                                        <a href="" class="btn bg-gradient-warning w-100 boton text-center p-0 pt-2 pb-2 m-1 align-items-center" style="font-size: 13px; width: 100px; margin-left: 0px !important;">
-                                            Ver más
-                                        </a>
-                                        <a href="" class="btn bg-gradient-primary w-100 boton text-center p-0 pt-2 pb-2 m-1 align-items-center" style="font-size: 13px; width: 100px; margin-right: 0px !important;">
-                                            Detalles
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mt-4 mb-4 tarjetaGeneral">
-                        <div class="card z-index-2">
-                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-                                <div class="bg-gradient-success shadow-primary border-radius-lg py-3 pe-1" style="background-image: url('../../assets/img/img-2.jpg'); background-size: cover; background-position: center center;">
-                                    <div class="chart">
-                                        <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="mb-2 titulo">Jugar deporte con la familia</h6>
-                                <div class="row">
-                                    <div class="col-lg-8 d-flex justify-content-start">
-                                        <div><span class="text-sm">Autor: Christopher PS</span><span> | </span><span class="text-sm">20/10/23, 16:40 p.m.</span></div>
-                                    </div>
-                                    <div class="col-lg-4 d-flex justify-content-end">
-                                        <span class="badge badge-sm bg-gradient-warning" style="height: 25px">
-                                            Pendiente
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="row d-flex flex-column justify-content-center p-0 m-0 pt-3">
-                                    <div class="d-flex justify-content-center p-0 m-0 botones">
-                                        <a href="" class="btn bg-gradient-warning w-100 boton text-center p-0 pt-2 pb-2 m-1 align-items-center" style="font-size: 13px; width: 100px; margin-left: 0px !important;">
-                                            Ver más
-                                        </a>
-                                        <a href="" class="btn bg-gradient-primary w-100 boton text-center p-0 pt-2 pb-2 m-1 align-items-center" style="font-size: 13px; width: 100px; margin-right: 0px !important;">
-                                            Detalles
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mt-4 mb-4 tarjetaGeneral">
-                        <div class="card z-index-2">
-                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-                                <div class="bg-gradient-success shadow-primary border-radius-lg py-3 pe-1" style="background-image: url('../../assets/img/img-3.jpg'); background-size: cover; background-position: center center;">
-                                    <div class="chart">
-                                        <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="mb-2 titulo">Ver programas educativos</h6>
-                                <div class="row">
-                                    <div class="col-lg-8 d-flex justify-content-start">
-                                        <div><span class="text-sm">Autor: Christopher PS</span><span> | </span><span class="text-sm">20/10/23, 16:40 p.m.</span></div>
-                                    </div>
-                                    <div class="col-lg-4 d-flex justify-content-end">
-                                        <span class="badge badge-sm bg-gradient-warning" style="height: 25px">
-                                            Pendiente
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="row d-flex flex-column justify-content-center p-0 m-0 pt-3">
-                                    <div class="d-flex justify-content-center p-0 m-0 botones">
-                                        <a href="" class="btn bg-gradient-warning w-100 boton text-center p-0 pt-2 pb-2 m-1 align-items-center" style="font-size: 13px; width: 100px; margin-left: 0px !important;">
-                                            Ver más
-                                        </a>
-                                        <a href="" class="btn bg-gradient-primary w-100 boton text-center p-0 pt-2 pb-2 m-1 align-items-center" style="font-size: 13px; width: 100px; margin-right: 0px !important;">
-                                            Detalles
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <!-- End Card -->
@@ -338,7 +234,7 @@ if (!isset($_SESSION["idusuario"])) {
                     <div class="card">
                         <div class="card-header pb-0 p-3 pt-4">
                             <div class="d-flex justify-content-center">
-                                <h6 class="mb-2 loading-data">Dispositivos vinculados</h6>
+                                <h6 class="mb-2 loading-data">Cargando datos...</h6>
                             </div>
                         </div>
                         <!-- <hr class="horizontal dark my-1 mb-0"> -->
@@ -353,35 +249,14 @@ if (!isset($_SESSION["idusuario"])) {
                                             <div class="text-center fw-bold text-sm">Dispositivo</div>
                                         </td>
                                         <td>
-                                            <div class="text-center fw-bold text-sm">Actividades</div>
+                                            <div class="text-center fw-bold text-sm">Fecha de registro</div>
                                         </td>
                                         <td>
                                             <div class="text-center fw-bold text-sm">Estado</div>
                                         </td>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="text-center">
-                                                <h6 class="text-sm fw-normal mb-0">Miguel HM</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="text-center">
-                                                <h6 class="text-sm fw-normal mb-0">CHILDMIND-140K51</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="text-center">
-                                                <h6 class="text-sm fw-normal mb-0">2 registrados</h6>
-                                            </div>
-                                        </td>
-                                        <td class="align-middle text-sm text-center">
-                                            <span class="badge badge-sm bg-gradient-success">Activado</span>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                <tbody></tbody>
                             </table>
                         </div>
                     </div>
@@ -391,7 +266,7 @@ if (!isset($_SESSION["idusuario"])) {
                         <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
                             <div class="carousel-inner border-radius-lg h-100">
                                 <div class="carousel-item h-100 active" style="background-image: url('../../assets/img/trabajo-dash-2.jpg'); background-size: cover; background-repeat: no-repeat;">
-                                    <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
+                                    <div class="carousel-caption bottom-0 text-start start-0 ms-5">
                                         <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
                                             <i class="ni ni-camera-compact text-dark opacity-10"></i>
                                         </div>
@@ -400,7 +275,7 @@ if (!isset($_SESSION["idusuario"])) {
                                     </div>
                                 </div>
                                 <div class="carousel-item h-100" style="background-image: url('../../assets/img/trabajo-dash-3.jpg'); background-size: cover; background-repeat: no-repeat;">
-                                    <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
+                                    <div class="carousel-caption bottom-0 text-start start-0 ms-5">
                                         <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
                                             <i class="ni ni-bulb-61 text-dark opacity-10"></i>
                                         </div>
@@ -409,7 +284,7 @@ if (!isset($_SESSION["idusuario"])) {
                                     </div>
                                 </div>
                                 <div class="carousel-item h-100" style="background-image: url('../../assets/img/trabajo-dash-1.jpg'); background-size: cover; background-repeat: no-repeat;">
-                                    <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
+                                    <div class="carousel-caption bottom-0 text-start start-0 ms-5">
                                         <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
                                             <i class="ni ni-trophy text-dark opacity-10"></i>
                                         </div>
@@ -482,11 +357,11 @@ if (!isset($_SESSION["idusuario"])) {
     ob_end_flush();
     ?>
 
-    <!-- <script src="../../scripts/dashboard4.js"></script>
+    <script src="../../scripts/dashboard5.js"></script>
 
     <script>
         $(document).ready(function() {
-            listarPuestos();
+            listarActividades();
             listarTabla();
         });
-    </script> -->
+    </script>

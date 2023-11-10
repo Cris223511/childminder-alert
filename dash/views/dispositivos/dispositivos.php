@@ -71,7 +71,7 @@ if (!isset($_SESSION["idusuario"])) {
     }
 </style>
 
-<body class="g-sidenav-show bg-gray-100" id="contain-body" onload="cambiarTitulo('Childminder Alert | Actividades')">
+<body class="g-sidenav-show bg-gray-100" id="contain-body" onload="cambiarTitulo('Childminder Alert | Dispositivos')">
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 panel" id="sidenav-main">
         <div class="sidenav-header">
@@ -96,7 +96,7 @@ if (!isset($_SESSION["idusuario"])) {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="actividades.php" class="nav-link active">
+                    <a href="../actividades/actividades.php" class="nav-link">
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-puzzle-piece text-primary text-sm opacity-10 mb-1"></i>
                         </div>
@@ -104,7 +104,7 @@ if (!isset($_SESSION["idusuario"])) {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../dispositivos/dispositivos.php" class="nav-link">
+                    <a href="dispositivos.php" class="nav-link active">
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa fa-mobile text-primary text-sm opacity-10 mb-1"></i>
                         </div>
@@ -161,9 +161,9 @@ if (!isset($_SESSION["idusuario"])) {
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Inicio</a></li>
-                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">Actividades</li>
+                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dispositivos</li>
                     </ol>
-                    <h6 class="font-weight-bolder text-white mb-0">Actividades</h6>
+                    <h6 class="font-weight-bolder text-white mb-0">Dispositivos</h6>
                 </nav>
                 <div id="iconNavbarSidenav">
                     <li class="nav-item d-xl-none p-3 pt-0 pb-0 d-flex align-items-start">
@@ -178,7 +178,7 @@ if (!isset($_SESSION["idusuario"])) {
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center col-xl-3 col-lg-5 col-6">
                         <div class="input-group">
                             <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" id="txtBuscar2" name="txtBuscar2" placeholder="Buscar actividad.">
+                            <input type="text" class="form-control" id="txtBuscar" name="txtBuscar" placeholder="Buscar dispositivo.">
                         </div>
                     </div>
                     <ul class="navbar-nav  justify-content-end">
@@ -198,48 +198,45 @@ if (!isset($_SESSION["idusuario"])) {
             </div>
         </nav>
         <!-- End Navbar -->
-        <div class="container-fluid py-2">
+        <div class="container-fluid py-4">
             <div class="row">
-                <div class="col-12 mb-xl-0">
-                    <div class="card">
-                        <div class="card-body p-3">
-                            <div class="row">
-                                <div class="col-8 d-flex align-items-center">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">TUS ACTIVIDADES</p>
-                                </div>
-                                <div class="col-4 text-end">
-                                    <div class="icon icon-shape bg-gradient-info shadow-danger text-center rounded-circle">
-                                        <i class="ni ni-satisfied text-lg opacity-10" aria-hidden="true"></i>
-                                    </div>
-                                </div>
+                <div class="col-12">
+                    <div class="card mb-4">
+                        <div class="card-header pb-0">
+                            <h6>Lista de dispositivos vinculados</h6>
+                        </div>
+                        <div class="card-body px-0 pt-0 pb-2">
+                            <div id="tabla" class="table-responsive p-0" style="max-height: 495px;">
+                                <table id="myTable" class="table align-items-center mb-0">
+                                    <thead>
+                                        <tr class="sticky sticky-top bg-white" style="box-shadow: 0px 0px 20px -10px;">
+                                            <th class="text-uppercase text-xxs font-weight-bolder opacity-7">Padre</th>
+                                            <th class="text-uppercase text-xxs font-weight-bolder opacity-7 ps-2">Dispositivo</th>
+                                            <th class="text-uppercase text-xxs font-weight-bolder opacity-7 ps-2">Fecha y hora</th>
+                                            <th class="text-uppercase text-xxs font-weight-bolder opacity-7 text-center">Estado</th>
+                                            <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">Opciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="overflow: auto;">
+                                        <tr>
+                                            <td colspan="16" class="align-middle text-sm text-center pt-3">
+                                                Cargando datos...
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Start Card -->
-            <div class="mt-4">
-                <h6 class="mb-4 fw-bold" id="noResults" style="color: white; display: none;">¡Opps!... La actividad que usted buscó no existe.</h6>
-                <div class="row actividades">
-                    <div class="col-lg-4 col-md-6">
-                        <span class="w-100 card loader"></span>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <span class="w-100 card loader"></span>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <span class="w-100 card loader"></span>
-                    </div>
-                </div>
-            </div>
-            <!-- End Card -->
         </div>
     </main>
     <div class="fixed-plugin" id="ajustes">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" id="mostrar-ajustes2">
             <i class="fa fa-cog py-2"> </i>
         </a>
-        <a href="actividades-add.php" class="fixed-plugin-button text-dark position-fixed px-3 py-2 add" style="transform: translate(0, -70px)">
+        <a href="dispositivos-add.php" class="fixed-plugin-button text-dark position-fixed px-3 py-2 add" style="transform: translate(0, -70px)">
             <i class="fa fa-plus py-2"> </i>
         </a>
         <div class="card shadow-lg">
@@ -288,7 +285,7 @@ if (!isset($_SESSION["idusuario"])) {
     ob_end_flush();
     ?>
 
-    <script src="../../scripts/actividades4.js"></script>
+    <script src="../../scripts/dispositivos1.js"></script>
 
     <script>
         $(document).ready(function() {

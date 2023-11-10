@@ -243,7 +243,7 @@ function finalizar(idactividad, titulo) {
 
     swalWithBootstrapButtons.fire({
         title: '¿Finalizar actividad?',
-        html: "¿Estás seguro que deseas finalizar a la actividad <strong> " + titulo + "</strong> en el sitio web?",
+        html: "¿Estás seguro que deseas finalizar a la actividad <strong> " + titulo + "</strong>?",
         icon: 'question',
         showCancelButton: true,
         confirmButtonText: 'Aceptar',

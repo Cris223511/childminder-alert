@@ -93,7 +93,7 @@ switch ($_GET["op"]) {
         echo json_encode($rows);
         break;
 
-    case 'listarActividadesDashboard':
+    case 'listarDashboard':
         $rol = $_SESSION['rol'];
 
         if ($rol == 'admin') {
@@ -105,18 +105,19 @@ switch ($_GET["op"]) {
         $rows = $rspta->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($rows as &$row) {
+            $estado = $row['estado'];
+
             $row['botones'] = '
                 <div class="d-flex justify-content-center p-0 m-0 botones">
-                    <a href="../actividades/actividades.php" class="btn bg-gradient-warning w-100 boton text-center p-0 pt-2 pb-2 m-1 align-items-center" style="font-size: 13px; width: 100px; margin-left: 0px !important;">
-                        Ver más
-                    </a>
-                    <a href="../actividades/actividades-detail.php?idactividad=' . $row['idactividad'] . '" class="btn bg-gradient-primary w-100 boton text-center p-0 pt-2 pb-2 m-1 align-items-center" style="font-size: 13px; width: 100px; margin-right: 0px !important;">
+                    <button onclick="window.location.href=\'../actividades/actividades-edit.php?idactividad=' . $row['idactividad'] . '\'" class="btn bg-gradient-warning w-100 boton text-center p-0 pt-2 pb-2 m-1 align-items-center" style="font-size: 13px; width: 100px; margin-left: 0px !important;">
+                        Editar
+                    </button>
+                    <button onclick="window.location.href=\'../actividades/actividades-detail.php?idactividad=' . $row['idactividad'] . '\'" class="btn bg-gradient-primary w-100 boton text-center p-0 pt-2 pb-2 m-1 align-items-center" style="font-size: 13px; width: 100px; margin-right: 0px !important;">
                         Detalles
-                    </a>
+                    </button>
                 </div>
-            ';
+                ';
         }
-
         echo json_encode($rows);
         break;
 
