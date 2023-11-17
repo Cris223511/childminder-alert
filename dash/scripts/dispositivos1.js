@@ -251,7 +251,7 @@ function activar(iddispositivo, nombre) {
     })
 }
 
-function desactivar(iddispositivo, nombre) {
+function desactivar(iddispositivo, nombre) { 
     /* ----------------- Mostramos el modal =) ----------------- */
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
