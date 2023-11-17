@@ -2,7 +2,7 @@
 ob_start();
 require '../layout/header.php';
 
-if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
+if (!isset($_SESSION["idusuario"])) {
     session_destroy(); // Cierre de sesión adecuado.
     header("Location: ../../auth/error.php");
     exit(); // Y detenemos la ejecución después de la redirección.

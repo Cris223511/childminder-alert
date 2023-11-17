@@ -2,7 +2,7 @@
 ob_start();
 require '../layout/header.php';
 
-if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
+if (!isset($_SESSION["idusuario"])) {
     session_destroy(); // Cierre de sesión adecuado.
     header("Location: ../../auth/error.php");
     exit(); // Y detenemos la ejecución después de la redirección.
@@ -36,7 +36,7 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
                             <form id="formulario" method="POST">
                                 <div class="card-body pt-1 pb-0">
                                     <div class="row">
-                                        <div class="col-md-6 mb-2">
+                                        <div class="col-md-12 mb-2">
                                             <div class="form-group">
                                                 <label for="titulo">Dispositivo:</label>
                                                 <input type="text" class="form-control" name="titulo" id="titulo" maxlength="30" placeholder="Ingrese el nombre del dispositivo." required disabled>
