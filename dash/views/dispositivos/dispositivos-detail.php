@@ -39,7 +39,7 @@ if (!isset($_SESSION["idusuario"])) {
                                         <div class="col-md-12 mb-2">
                                             <div class="form-group">
                                                 <label for="titulo">Dispositivo:</label>
-                                                <input type="text" class="form-control" name="titulo" id="titulo" maxlength="30" placeholder="Ingrese el nombre del dispositivo." disabled>
+                                                <input type="text" class="form-control" name="titulo" id="titulo" maxlength="17" placeholder="Ingrese el nombre del dispositivo." disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -75,7 +75,7 @@ if (!isset($_SESSION["idusuario"])) {
     ob_end_flush();
     ?>
 
-    <script src="../../scripts/dispositivos1.js"></script>
+    <script src="../../scripts/dispositivos3.js"></script>
 
     <script>
         $(document).ready(function() {

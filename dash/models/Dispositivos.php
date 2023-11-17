@@ -42,13 +42,19 @@ class Dispositivo
     public function agregar($usuario, $titulo)
     {
         $sql = "INSERT INTO dispositivos (idusuario,titulo,fecha_hora,estado)
-		VALUES ('$usuario','$titulo','activado')";
+		VALUES ('$usuario','$titulo',SYSDATE(),'activado')";
         return ejecutarConsulta($sql);
     }
 
     public function editar($iddispositivo, $titulo)
     {
         $sql = "UPDATE dispositivos SET titulo='$titulo' WHERE iddispositivo='$iddispositivo'";
+        return ejecutarConsulta($sql);
+    }
+
+    public function eliminar($iddispositivo)
+    {
+        $sql = "DELETE FROM dispositivos WHERE iddispositivo='$iddispositivo'";
         return ejecutarConsulta($sql);
     }
 

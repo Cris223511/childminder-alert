@@ -10,10 +10,39 @@ function limpiar() {
     document.getElementById("titulo").focus();
 }
 
+function noType() {
+    $("#titulo").val("");
+}
+
+// Función para generar una cadena aleatoria de longitud especificada
+function generarCadenaAleatoria(longitud) {
+    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let resultado = '';
+    for (let i = 0; i < longitud; i++) {
+        const indice = Math.floor(Math.random() * caracteres.length);
+        resultado += caracteres.charAt(indice);
+    }
+    return resultado;
+}
+
+function vincular() {
+    $("#btnBuscar").text("Buscando...");
+    $("#btnBuscar").prop("disabled", true);
+
+    setTimeout(() => {
+        $('#titulo').removeAttr('oninput');
+        $('#titulo').val('CHILDMIND-' + generarCadenaAleatoria(6));
+        $('#titulo').prop("disabled", true);
+        $("#btnBuscar").addClass("d-none");
+        $("#btnVinculado").removeClass("d-none");
+        $('#btnGuardar').prop("disabled", false);
+    }, 2000);
+}
+
 function agregar(e) {
     e.preventDefault();
     $("#btnGuardar").prop("disabled", true);
-    $("#btnGuardar").text("Agregando...").css("color", "white");
+    $("#btnGuardar").text("Vinculando...").css("color", "white");
 
     $("#titulo").prop("disabled", false);
     var formData = new FormData($("#formulario")[0]);
@@ -47,9 +76,7 @@ function editar(e) {
     $("#btnGuardar").prop("disabled", true);
     $("#btnGuardar").text("Cargando...").css("color", "white");
 
-    $("#titulo").prop("disabled", false);
     var formData = new FormData($("#formulario")[0]);
-    $("#titulo").prop("disabled", true);
 
     $.ajax({
         url: "../../ajax/dispositivos.php?op=agregaryeditar",
@@ -149,19 +176,7 @@ function listar() {
                             </td>
                             <td class="align-middle">
                                 <div class="row d-flex flex-column justify-content-center p-0 m-0 botones">
-                                    <div class="d-flex justify-content-center p-0 m-0">
-                                        <button onclick="window.location.href='dispositivos-edit.php?iddispositivo=${dispositivos.iddispositivo}'" class="btn bg-gradient-warning col-6 boton text-center p-0 pt-1 pb-1 m-1 align-items-center" style="font-size: 13px; width: 100px;">
-                                            Editar
-                                        </button>
-                                        <button onclick="window.location.href='dispositivos-detail.php?iddispositivo=${dispositivos.iddispositivo}'" class="btn bg-gradient-primary col-6 boton text-center p-0 pt-1 pb-1 m-1 align-items-center" style="font-size: 13px; width: 100px;">
-                                            Detalles
-                                        </button>
-                                    </div>
-                                    <div class="d-flex justify-content-center p-0 m-0">
-                                        <button onclick="eliminar('${dispositivos.iddispositivo}', '${dispositivos.nombres}')" id="btnEliminar" class="btn bg-gradient-danger col-12 boton text-center p-0 pt-1 pb-1 m-1 align-items-center" style="font-size: 13px; width: 210px; cursor: pointer;">
-                                            Eliminar
-                                        </button>
-                                    </div>
+                                    ${dispositivos.botones}
                                 </div>
                             </td>
                         </tr>
@@ -179,7 +194,7 @@ function listar() {
     });
 }
 
-function eliminar(iddispositivo, idsolicitud) {
+function eliminar(iddispositivo, titulo) {
     /* ----------------- Mostramos el modal =) ----------------- */
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
@@ -191,7 +206,7 @@ function eliminar(iddispositivo, idsolicitud) {
 
     swalWithBootstrapButtons.fire({
         title: '¿Eliminar dispositivo?',
-        html: '¿Estás seguro que deseas eliminar al dispositivo? Recuerda que esta acción es irreversible.',
+        html: '¿Estás seguro que deseas eliminar al dispositivo <strong>' + titulo + '</strong>? Recuerda que esta acción es irreversible.',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Eliminar',
@@ -207,7 +222,7 @@ function eliminar(iddispositivo, idsolicitud) {
             $(".botones button").prop("disabled", true);
             $(".botones button").css("color", "white");
 
-            $.post("../../ajax/dispositivos.php?op=eliminar", { iddispositivo: iddispositivo, idsolicitud: idsolicitud }, function (e) {
+            $.post("../../ajax/dispositivos.php?op=eliminar", { iddispositivo: iddispositivo }, function (e) {
                 console.log("el servidor responde: " + e)
                 /* ----------------- Y volvemos a listar =) ----------------- */
                 listar();

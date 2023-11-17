@@ -285,7 +285,7 @@ if (!isset($_SESSION["idusuario"])) {
     ob_end_flush();
     ?>
 
-    <script src="../../scripts/dispositivos1.js"></script>
+    <script src="../../scripts/dispositivos3.js"></script>
 
     <script>
         $(document).ready(function() {
