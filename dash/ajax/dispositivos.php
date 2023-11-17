@@ -52,11 +52,13 @@ switch ($_GET["op"]) {
                     <button onclick="window.location.href=\'dispositivos-detail.php?iddispositivo=' . $row['iddispositivo'] . '\'" class="btn bg-gradient-primary col-6 boton text-center p-0 pt-1 pb-1 m-1 align-items-center" style="font-size: 13px; width: 100px;">
                         Detalles
                     </button>
+                </div>
             ';
 
             if ($estado === 'activado') {
                 $row['botones'] .= '
-                    <button onclick="desactivar(' . $row['iddispositivo'] . ', \'' . $row['titulo'] . '\')" class="btn bg-gradient-danger col-6 boton text-center p-0 pt-1 pb-1 m-1 align-items-center" style="font-size: 13px; width: 100px; cursor: pointer;">
+                <div class="d-flex justify-content-center p-0 m-0 botones">
+                    <button onclick="desactivar(' . $row['iddispositivo'] . ', \'' . $row['titulo'] . '\')" class="btn bg-gradient-info col-6 boton text-center p-0 pt-1 pb-1 m-1 align-items-center" style="font-size: 13px; width: 100px; cursor: pointer;">
                         Desactivar
                     </button>
                 ';
@@ -64,13 +66,17 @@ switch ($_GET["op"]) {
 
             if ($estado === 'desactivado') {
                 $row['botones'] .= '
-                    <button onclick="activar(' . $row['iddispositivo'] . ', \'' . $row['titulo'] . '\')" class="btn bg-gradient-info col-6 boton text-center p-0 pt-1 pb-1 m-1 align-items-center" style="font-size: 13px; width: 100px; cursor: pointer;">
+                <div class="d-flex justify-content-center p-0 m-0 botones">
+                    <button onclick="activar(' . $row['iddispositivo'] . ', \'' . $row['titulo'] . '\')" class="btn bg-gradient-success col-6 boton text-center p-0 pt-1 pb-1 m-1 align-items-center" style="font-size: 13px; width: 100px; cursor: pointer;">
                         Activar
                     </button>
                 ';
             }
 
             $row['botones'] .= '
+                <button onclick="eliminar(' . $row['iddispositivo'] . ', \'' . $row['titulo'] . '\')" class="btn bg-gradient-danger col-6 boton text-center p-0 pt-1 pb-1 m-1 align-items-center" style="font-size: 13px; width: 100px; cursor: pointer;">
+                        Eliminar
+                    </button>
                 </div>
             ';
         }
@@ -117,6 +123,11 @@ switch ($_GET["op"]) {
         }
 
         echo json_encode($rows);
+        break;
+
+    case 'eliminar':
+        $rspta = $dispositivos->eliminar($iddispositivo);
+        echo $rspta ? "true" : "false";
         break;
 
     case 'activar':

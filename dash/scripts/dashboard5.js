@@ -33,7 +33,7 @@ function listarActividades() {
                                     <h6 class="mb-2 titulo">${capitalizarTodasLasPalabras(actividad.titulo)}</h6>
                                     <div class="row">
                                         <div class="col-lg-8 d-flex justify-content-start">
-                                            <div><span class="text-sm">Autor: Christopher PS</span><span> | </span><span class="text-sm">${actividad.fecha_hora}</span></div>
+                                            <div><span class="text-sm">Autor: ${capitalizarPalabras(actividad.usuario)}</span><span> | </span><span class="text-sm">${actividad.fecha_hora}</span></div>
                                         </div>
                                         <div class="col-lg-4 d-flex justify-content-end">
                                             <span class="badge badge-sm bg-gradient-${actividad.estado === 'pendiente' ? 'warning' : 'success'}" style="height: 25px">

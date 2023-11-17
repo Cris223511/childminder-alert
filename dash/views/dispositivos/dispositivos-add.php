@@ -2,7 +2,7 @@
 ob_start();
 require '../layout/header.php';
 
-if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
+if (!isset($_SESSION["idusuario"])) {
     session_destroy(); // Cierre de sesión adecuado.
     header("Location: ../../auth/error.php");
     exit(); // Y detenemos la ejecución después de la redirección.
@@ -36,18 +36,19 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
                             <form id="formulario" method="POST">
                                 <div class="card-body pt-1 pb-0">
                                     <div class="row">
-                                        <div class="col-md-6 mb-2">
+                                        <div class="col-md-12 mb-2">
                                             <div class="form-group">
                                                 <label for="titulo">Dispositivo:</label>
-                                                <input type="text" class="form-control" name="titulo" id="titulo" maxlength="30" placeholder="Ingrese el nombre del dispositivo." required disabled>
+                                                <input type="text" class="form-control" name="titulo" id="titulo" maxlength="17" oninput="noType()" placeholder="Nombre del dispositivo." autocomplete="off" required>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row p-4 pt-0">
                                     <div class="col-md-6 text-end ms-auto">
-                                        <a onclick="vincular()" class="btn bg-gradient-warning mb-0">Buscar</a>
-                                        <button type="submit" id="btnGuardar" class="btn bg-gradient-info mb-0">Agregar</button>
+                                        <button type="button" id="btnBuscar" onclick="vincular()" class="btn bg-gradient-warning mb-0">Buscar</button>
+                                        <button type="button" id="btnVinculado" class="btn bg-gradient-success mb-0 d-none">Vinculado</button>
+                                        <button type="submit" id="btnGuardar" class="btn bg-gradient-info mb-0" disabled>Agregar</button>
                                     </div>
                                 </div>
                             </form>
@@ -81,7 +82,7 @@ if (!isset($_SESSION["idusuario"]) || $_SESSION['rol'] != "admin") {
     ob_end_flush();
     ?>
 
-    <script src="../../scripts/dispositivos1.js"></script>
+    <script src="../../scripts/dispositivos3.js"></script>
 
     <script>
         $(document).ready(function() {
