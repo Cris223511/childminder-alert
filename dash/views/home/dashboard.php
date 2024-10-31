@@ -280,7 +280,7 @@ if (!isset($_SESSION["idusuario"])) {
                                             <i class="ni ni-bulb-61 text-dark opacity-10"></i>
                                         </div>
                                         <h5 class="text-white mb-1">Trabajo en equipo.</h5>
-                                        <p>Trabajamos codo a codo con expertos en TDAH y familias para ofrecer soluciones efectivas. Nuestro enfoque es colaborativo, centrado en el bienestar de los niños.</p>
+                                        <p>Trabajamos con expertos en TDAH y familias para ofrecer soluciones efectivas. Nuestro enfoque es colaborativo, centrado en el bienestar de los niños.</p>
                                     </div>
                                 </div>
                                 <div class="carousel-item h-100" style="background-image: url('../../assets/img/trabajo-dash-1.jpg'); background-size: cover; background-repeat: no-repeat;">

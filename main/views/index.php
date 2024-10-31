@@ -579,18 +579,15 @@ if (strlen(session_id()) < 1)
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
-
         <div class="section-title">
           <h2>Contacto</h2>
           <p>Si quieres contactarte con nosotros, te presentamos a continuación nuestros medios de contacto.
           </p>
         </div>
       </div>
-
       <div>
         <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15606.292929944639!2d-76.951602!3d-12.0728573!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c6fadcaf64a7%3A0x91a8066253ed53de!2sUniversidad%20San%20Ignacio%20de%20Loyola%20(USIL)!5e0!3m2!1ses-419!2spe!4v1696620195498!5m2!1ses-419!2spe" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
       </div>
-
       <div class="container">
         <div class="row info mt-5" style="background-color: transparent !important;">
           <div class="col-lg-4 pb-2 d-flex justify-content-sm-start justify-content-lg-center align-items-center align-content-center">

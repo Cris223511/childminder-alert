@@ -48,7 +48,6 @@ function editar(e) {
 
     $("#fecha_hora").prop("disabled", false);
     var formData = new FormData($("#formulario")[0]);
-    $("#fecha_hora").prop("disabled", true);
 
     $.ajax({
         url: "../../ajax/actividades.php?op=agregaryeditar",
